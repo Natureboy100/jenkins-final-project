@@ -12,14 +12,14 @@ pipeline {
         stage('build') {
             steps {
                 echo "files 1"
-                bat 'Python ./Python1/files 1.py'
+                sh 'Python ./Python1/files 1.py'
             }
         }
 
         stage('build2') {
             steps {
                 echo 'files 2'
-                bat 'Python ./Python1/files 2.py'
+                sh 'Python ./Python1/files 2.py'
             }
         }
 
