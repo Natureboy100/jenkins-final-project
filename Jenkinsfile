@@ -26,7 +26,7 @@ pipeline {
         stage('test') {
             steps {
                 echo 'security testing'
-                snykSecurity( snykInstallation: 'synk', synkTokenId: 'synk-api-token', additionalArguments: '--all-projects')
+                snykSecurity(snykInstallation: 'snyk', snykTokenId: 'synk-api-token', additionalArguments: '--all-projects')
             }
         }
     }
