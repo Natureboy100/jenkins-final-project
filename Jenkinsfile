@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('version') {
             steps {
-                sh 'python3 --version'
+                sh 'python3 --version || sudo apt-get update && sudo apt-get install -y python3'
             }
         }
         stage('clone') {
@@ -13,7 +13,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Natureboy100/jenkins-final-project.git'
             }
         }
-
         stage('build') {
             steps {
                 echo "files 1"
