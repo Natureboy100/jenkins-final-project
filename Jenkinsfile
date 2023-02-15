@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('version') {
+            steps {
+                sh 'python3 --version'
+            }
+        }
         stage('clone') {
             steps {
                 // Get some code from a GitHub repository
@@ -12,14 +17,14 @@ pipeline {
         stage('build') {
             steps {
                 echo "files 1"
-                sh 'Python ./Python1/files 1.py'
+                sh 'python3 ./Python1/files 1.py'
             }
         }
 
         stage('build2') {
             steps {
                 echo 'files 2'
-                sh 'Python ./Python1/files 2.py'
+                sh 'python3 ./Python1/files 2.py'
             }
         }
 
