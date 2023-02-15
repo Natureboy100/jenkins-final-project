@@ -2,13 +2,14 @@ pipeline {
     agent any
 
     tools {
-        python 'python3'
+        python "python3"
+        nodejs "node"
     }
 
     stages {
         stage('Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/Natureboy100/jenkins-final-project.git'
+                git 'https://github.com/Natureboy100/jenkins-final-project.git'
             }
         }
 
