@@ -16,21 +16,21 @@ pipeline {
         stage('build') {
             steps {
                 echo "files 1"
-                sh 'python3 ./Python 1/files 1.py'
+                sh 'python3 ./Python1/files1.py'
             }
         }
 
         stage('build2') {
             steps {
                 echo 'files 2'
-                sh 'python3 ./Python 2/files 2.py'
+                sh 'python3 ./Python2/files2.py'
             }
         }
 
         stage('test') {
             steps {
                 echo 'security testing'
-                snykSecurity(snykInstallation: 'snyk', snykTokenId: 'synk-api-token', additionalArguments: '--all-projects')
+                snykSecurity(snykInstallation: 'snyk', snykTokenId: 'snyk-api-token', additionalArguments: '--all-projects')
             }
         }
     }
