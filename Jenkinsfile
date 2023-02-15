@@ -1,36 +1,35 @@
 pipeline {
     agent any
 
+    tools {
+        python 'python3'
+    }
+
     stages {
-        stage('version') {
+        stage('Clone') {
             steps {
-                sh 'python3 --version || sudo apt-get update && sudo apt-get install -y python3'
-            }
-        }
-        stage('clone') {
-            steps {
-                // Get some code from a GitHub repository
                 git branch: 'main', url: 'https://github.com/Natureboy100/jenkins-final-project.git'
             }
         }
-        stage('build') {
+
+        stage('Build 1') {
             steps {
-                echo "files 1"
-                sh 'python3 ./Python1/files1.py'
+                echo 'Running files1.py'
+                sh 'python3 ./Python 1/files 1.py'
             }
         }
 
-        stage('build2') {
+        stage('Build 2') {
             steps {
-                echo 'files 2'
-                sh 'python3 ./Python2/files2.py'
+                echo 'Running files2.py'
+                sh 'python3 ./Python 2/files 2.py'
             }
         }
 
-        stage('test') {
+        stage('Security Test') {
             steps {
-                echo 'security testing'
-                snykSecurity(snykInstallation: 'snyk', snykTokenId: 'snyk-api-token', additionalArguments: '--all-projects')
+                echo 'Running security testing'
+                snykSecurity additionalArguments: '--all-projects', snykInstallation: 'snyk', snykTokenId: 'snyk-api-token'
             }
         }
     }
