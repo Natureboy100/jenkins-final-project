@@ -17,14 +17,14 @@ pipeline {
         stage('build') {
             steps {
                 echo "files 1"
-                sh 'python3 ./Python1/files 1.py'
+                sh 'python3 ./Python 1/files 1.py'
             }
         }
 
         stage('build2') {
             steps {
                 echo 'files 2'
-                sh 'python3 ./Python1/files 2.py'
+                sh 'python3 ./Python 2/files 2.py'
             }
         }
 
